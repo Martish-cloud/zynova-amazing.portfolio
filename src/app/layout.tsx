@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono, Syne, Playfair_Display } from "next/font/google"
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import ScrollFramesBackground from "@/components/ScrollFramesBackground";
+import AudioPlayer from "@/components/AudioPlayer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono" });
@@ -31,6 +32,7 @@ export default function RootLayout({
           "antialiased font-sans text-white bg-background min-h-screen selection:bg-brand-cyan/30"
         )}
       >
+        <AudioPlayer />
         <div className="noise-overlay" />
         <ScrollFramesBackground />
         {children}
