@@ -1,12 +1,49 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MessageCircle, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import LiveClock from "./LiveClock";
 
 export default function FounderMessage() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  };
+
+  const listContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05
+      }
+    }
+  };
+
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.4 } }
+  };
+
   return (
     <section className="relative w-full max-w-7xl mx-auto px-6 py-24 z-10" id="about">
-      <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden"
+      >
         
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-brand-cyan/10 rounded-full blur-[80px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
@@ -15,7 +52,7 @@ export default function FounderMessage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
           
           {/* Left Column: Founder Intro */}
-          <div className="lg:col-span-5 flex flex-col space-y-6">
+          <motion.div variants={itemVariants} className="lg:col-span-5 flex flex-col space-y-6">
             <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-xs font-mono text-gray-300 w-max mb-2">
               A MESSAGE FROM THE FOUNDER
             </div>
@@ -77,10 +114,10 @@ export default function FounderMessage() {
 
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Services List */}
-          <div className="lg:col-span-7 relative flex flex-col space-y-8 rounded-3xl p-8 lg:p-10 overflow-hidden border border-white/10 shadow-2xl bg-black/40">
+          <motion.div variants={itemVariants} className="lg:col-span-7 relative flex flex-col space-y-8 rounded-3xl p-8 lg:p-10 overflow-hidden border border-white/10 shadow-2xl bg-black/40">
             
             {/* Background Video */}
             <video 
@@ -104,21 +141,33 @@ export default function FounderMessage() {
                   <div className="h-px bg-brand-cyan/30 flex-grow ml-2"></div>
                 </h4>
                 
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm font-mono text-gray-200 drop-shadow-md">
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">01.</span> HTML, CSS & Web Design</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">02.</span> Full-Stack MERN Stack</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">03.</span> Frontend (React.js & Next.js)</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">04.</span> Backend (Express.js & NestJS)</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">05.</span> Android (Flutter & React Native)</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">06.</span> iOS App Development</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">07.</span> Spring Boot Backend</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">08.</span> .NET Backend Development</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">09.</span> Blockchain Development</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">10.</span> PHP & Laravel Full-Stack</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">11.</span> WordPress Development</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">12.</span> Shopify Development</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-cyan font-bold opacity-80">13.</span> Django Backend</li>
-                </ul>
+                <motion.ul 
+                  variants={listContainerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm font-mono text-gray-200 drop-shadow-md"
+                >
+                  {[
+                    "HTML, CSS & Web Design",
+                    "Full-Stack MERN Stack",
+                    "Frontend (React.js & Next.js)",
+                    "Backend (Express.js & NestJS)",
+                    "Android (Flutter & React Native)",
+                    "iOS App Development",
+                    "Spring Boot Backend",
+                    ".NET Backend Development",
+                    "Blockchain Development",
+                    "PHP & Laravel Full-Stack",
+                    "WordPress Development",
+                    "Shopify Development",
+                    "Django Backend"
+                  ].map((service, idx) => (
+                    <motion.li variants={listItemVariants} key={idx} className="flex items-start gap-2">
+                      <span className="text-brand-cyan font-bold opacity-80">{(idx + 1).toString().padStart(2, '0')}.</span> {service}
+                    </motion.li>
+                  ))}
+                </motion.ul>
               </div>
 
               {/* Data & Business */}
@@ -128,17 +177,29 @@ export default function FounderMessage() {
                   <div className="h-px bg-brand-amber/30 flex-grow ml-2"></div>
                 </h4>
                 
-                <ul className="flex flex-col space-y-3 text-sm font-mono text-gray-200 drop-shadow-md">
-                  <li className="flex items-start gap-2"><span className="text-brand-amber font-bold opacity-80">01.</span> Data Reporting, Data Cleaning & Data Merging using MS Excel</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-amber font-bold opacity-80">02.</span> Professional & Advanced Dashboard Development using MS Excel</li>
-                  <li className="flex items-start gap-2"><span className="text-brand-amber font-bold opacity-80">03.</span> Power BI Reporting & Advanced Dashboard Development</li>
-                </ul>
+                <motion.ul 
+                  variants={listContainerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="flex flex-col space-y-3 text-sm font-mono text-gray-200 drop-shadow-md"
+                >
+                  {[
+                    "Data Reporting, Data Cleaning & Data Merging using MS Excel",
+                    "Professional & Advanced Dashboard Development using MS Excel",
+                    "Power BI Reporting & Advanced Dashboard Development"
+                  ].map((service, idx) => (
+                    <motion.li variants={listItemVariants} key={idx} className="flex items-start gap-2">
+                      <span className="text-brand-amber font-bold opacity-80">{(idx + 1).toString().padStart(2, '0')}.</span> {service}
+                    </motion.li>
+                  ))}
+                </motion.ul>
               </div>
             </div>
 
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
