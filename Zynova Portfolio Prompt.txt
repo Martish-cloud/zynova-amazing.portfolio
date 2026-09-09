@@ -1,0 +1,81 @@
+Create a high-end, dark-mode agency and digital solutions portfolio website for the brand "Zynova", directly inspired by Awwwards-level interactive portfolio design.
+
+### 1. Visual Theme & Aesthetics
+- Background: Deep void black / midnight navy with an animated, soft-glowing mesh gradient (cyan, deep purple, and warm amber) layered under a subtle SVG noise/grain texture overlay.
+- Typography:
+  - Primary headline font: Modern bold geometric sans-serif (e.g., Syne, Plus Jakarta Sans, or Inter Display).
+  - Accent headline font: Elegant editorial serif italic (e.g., Cormorant Garamond or Playfair Display) in warm golden-amber.
+  - Body & metadata font: Clean monospace / micro-sans (e.g., JetBrains Mono or Space Grotesk) in muted gray/white for technical details.
+- Color Accents: Electric cyan, luminous emerald, and warm gold.
+
+---
+
+### 2. Header & Navigation
+- Top Navigation Bar (Fixed / Floating Glassmorphism):
+  - Left: Brand logo/wordmark — "ZYNOVA" (bold, modern uppercase).
+  - Center Navigation: "SERVICES", "SOLUTIONS", "PLAYBOOK", "ABOUT".
+  - Right Actions: Direct quick-action buttons for "WHATSAPP" and "CONTACT" linking directly to communication channels.
+
+---
+
+### 3. Hero Section (Screen 1)
+- Main Hero Typography:
+  - Line 1: "Digital &" in bold white sans-serif + "intelligent" in warm amber italic serif.
+  - Line 2: "solutions" or "architects" in massive, bold white sans-serif directly below.
+- Interactive Optical Lens Effect:
+  - A circular glassmorphism magnifying lens that smoothly tracks the cursor (or auto-animates across typography).
+  - Features real-time optical refraction, chromatic aberration (RGB rainbow edge glow), magnification, and backdrop blur over typography and background gradients.
+- Micro-Details & Meta Badges (Fixed corners):
+  - Bottom-Left:
+    "SOFTWARE ENGINEERING / FULL-STACK / DATA SYSTEMS"
+    "AVAILABLE FOR GLOBAL CLIENTS & ENTERPRISES"
+  - Bottom-Right:
+    Direct contact badge:
+    "GET IN TOUCH: EMAIL & WHATSAPP"
+    "ACTIVE STATUS: ONLINE"
+
+---
+
+### 4. About & Work Showcase Section (Screen 2)
+- Layout: Asymmetrical two-column split screen with rich ambient gradient lighting.
+- Left Column (Brand Statement & Direct Contact):
+  - Statement Headline:
+    "We are Zynova, we build high-performance software, scalable web architectures & data-driven dashboards for modern businesses."
+  - Text Highlight: Highlight the words "high-performance" and "data-driven" in glowing mint/cyan.
+  - Direct Contact Actions:
+    - Primary Button: "Chat on WhatsApp" (Direct WhatsApp URL integration with custom pre-filled message).
+    - Secondary Button: "Send Email" (mailto: trigger or interactive contact modal).
+- Right Column (Interactive Stacked Solution Cards):
+  - Overlapping stack of dark, rounded cards with carousel tab switching, category tags, and pagination controls:
+
+  * Card 1: "WEB & SOFTWARE ENGINEERING"
+    - MERN Stack (React.js, Node.js, Express.js)
+    - Next.js & Modern Frontend Architecture
+    - Backend Systems: NestJS, Spring Boot, .NET & Django
+    - PHP & Laravel Full-Stack Solutions
+    - CMS & E-Commerce: WordPress & Shopify Development
+
+  * Card 2: "MOBILE & DECENTRALIZED APPS"
+    - Cross-Platform Mobile Apps (Flutter & React Native)
+    - Native iOS App Development
+    - Web3 & Blockchain Development
+
+  * Card 3: "DATA ANALYTICS & BUSINESS INTELLIGENCE"
+    - Advanced MS Excel Dashboards & Automated Reporting
+    - Data Cleaning, Merging & Transformation Pipelines
+    - Power BI Interactive Dashboards & Executive KPI Tracking
+
+---
+
+### 5. Contact Integration (Footer & Quick Access)
+- WhatsApp Action: Direct link to `https://wa.me/<YOUR_PHONE_NUMBER>?text=Hi%20Zynova,%20I%20would%20like%20to%20discuss%20a%20project`
+- Email Action: Direct mailto link to `mailto:<YOUR_EMAIL>` or an integrated lead capture form.
+- Socials & Profiles: Quick links to GitHub, LinkedIn, and client review platforms.
+
+---
+
+### 6. Technical Architecture & Animation Requirements
+- Tech Stack: Next.js (App Router), React, Tailwind CSS, TypeScript.
+- Animation & Physics: Framer Motion for card stacking, scroll reveals, and tab transitions.
+- Lens Distortion Shader: WebGL / Three.js / Canvas fragment shader with chromatic dispersion to create the liquid glass magnifying lens effect.
+- Responsiveness: Fully adaptive layout from mobile screens to 4K ultra-wide displays with touch-friendly card navigation.
